@@ -720,7 +720,7 @@ smtpd_tls_security_level = may
 # Honors Cipher Order Preference
 tls_preempt_cipherlist = yes
 
-# Enable SSLv3, TLS1.0, TLS1.1, TLS1.2
+# Enable TLS1.0, TLS1.1, TLS1.2
 smtpd_tls_protocols = !SSLv2 !SSLv3
 
 # Choose High Ciphers Below
@@ -732,6 +732,8 @@ smtpd_tls_exclude_ciphers = aNULL, eNULL, EXPORT, DES, RC4, MD5, 3DES
 #smtpd_tls_exclude_ciphers = aNULL, eNULL, EXPORT, DES, RC4, MD5, PSK, aECDH, EDH-DSS-DES-CBC3-SHA, EDH-RSA-DES-CDC3-SHA, KRB5-DE5, CBC3-SHA, IDEA-CBC-SHA, ECDHE-RSA-DES-CBC3-SHA, EDH-RSA-DES-CBC3-SHA, DES-CBC3-SHA
 
 # Strong 4096 DH Key
+# Generate a new unique DH group >1024 and point to it's location:
+# $ openssl dhparam -out dhparams.pem 4096
 smtpd_tls_dh1024_param_file = /etc/ssl/certs/dhparams.pem
 
 # Allow STARTTLS
